@@ -6,13 +6,17 @@ const TaskBox = (props) => {
   const { taskList, addSubTask, updateStatus, updateSubTask } = props;
   const [ subTaskName, setSubTaskName] = useState("");
   const { name, id, subTasks } = taskList;
+  const [error, setError] = useState(false);
 
   const handleChangeText = (e) => {
     if (e.key === "Enter") {
-      addSubTask(subTaskName, id);
-      setSubTaskName("");
-    } else {
-      setSubTaskName(e.target.value);
+      if(subTaskName !== ""){
+        addSubTask(subTaskName, id);
+        setSubTaskName("");
+        setError(false);
+      }else{
+        setError(true)
+      }
     }
   };
 
@@ -39,11 +43,13 @@ const TaskBox = (props) => {
         );
       })}
       <TextField
+        error={error}
         className="add_task_textfield"
-        onChange={(e) => setSubTaskName(e.target.value)}
+        onChange={(e) => {setSubTaskName(e.target.value); setError(false)}}
         onKeyUp={(e) => handleChangeText(e)}
         value={subTaskName}
-        placeholder="Add task"
+        placeholder="Add a task"
+        helperText={error && "Please Enter Task name"}
       />
     </Grid>
   );
