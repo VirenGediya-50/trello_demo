@@ -1,4 +1,4 @@
-import { Checkbox, Grid, Icon } from "@mui/material";
+import { Checkbox, Grid } from "@mui/material";
 import React from "react";
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import AttachFileSharpIcon from '@mui/icons-material/AttachFileSharp';
