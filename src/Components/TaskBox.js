@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import SubTaskBox from "./SubTaskBox";
 
 const TaskBox = (props) => {
-  const { taskList, addSubTask, updateStatus, updateSubTask } = props;
+  const { taskList, addSubTask, updateStatus, updateSubTask, moveSubTaskFromTask } = props;
   const [ subTaskName, setSubTaskName] = useState("");
   const { name, id, subTasks } = taskList;
   const [error, setError] = useState(false);
@@ -22,9 +22,13 @@ const TaskBox = (props) => {
 
   const moveSubTask = (startIndex, lastIndex, parentId) => {
       let newSubTaskList = [...subTasks];
-      const newObj = newSubTaskList[parseInt(startIndex - 1)];
-      newSubTaskList.splice((startIndex-1), 1);
-      newSubTaskList.splice(lastIndex-1, 0, newObj);
+      let lstIndex = newSubTaskList.findIndex(i => i.subTaskId === parseInt(lastIndex));
+      let sttIndex = newSubTaskList.findIndex(i => i.subTaskId === parseInt(startIndex));
+      const newObj = newSubTaskList[sttIndex];
+      
+      newSubTaskList.splice(sttIndex, 1);
+      newSubTaskList.splice(lstIndex, 0, newObj);
+      
       updateSubTask(newSubTaskList, parentId);
   }
 
@@ -39,6 +43,7 @@ const TaskBox = (props) => {
             taskId={id}
             updateStatus={updateStatus}
             moveSubTask={moveSubTask}
+            moveSubTaskFromTask={moveSubTaskFromTask}
           />
         );
       })}

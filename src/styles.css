@@ -7,15 +7,16 @@
 .all_tasks{
     margin: 40px 20px;
     max-height: 90%;
-    overflow-y: scroll;
-    max-width: 90%s;
+    overflow: auto !important;
+    flex-wrap: nowrap !important;
 }
 
 .new_button{
     background-color: darkgrey !important;
     margin: 0 30px;
     height: 60px;
-    width: 100%;
+    width: 350px;
+    min-width: 350px;
     justify-content: left !important;
 }
 
@@ -31,15 +32,16 @@
     margin: 0 20px;
     padding: 10px 15px;
     border-radius: 4px;
-    max-height: 100%;
+    max-height: 97%;
     scroll-behavior: none;
+    min-width: 350px;
     overflow: auto;
     height: fit-content;
     background-color: darkgray !important;
 }
 
 .sub_task{
-    height: 100px;
+    min-height: 90px;
     background-color: aliceblue;
     border-radius: 4px;
     margin: 20px 0;
@@ -69,4 +71,36 @@
 .subtask_title{
     padding: 5px !important;
     font-weight: 400;
+    margin:  5px 0 !important;
+}
+.subtitle_grid{
+    padding: 0px;
+}
+
+.clip_icon{
+    height: 15px !important;
+}
+
+.round_checkbox{
+    padding: 10px 9px !important;
+}
+
+.notification_grid{
+    height: 100%;
+}
+
+.image_chip{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.viewers {
+    padding: 0 15px 5px 0;
+}
+
+.calender{
+    width: 30px;
+    padding: 0 0 5px 0;
 }

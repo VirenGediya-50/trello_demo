@@ -24,6 +24,23 @@ class Home extends Component {
     });
   };
 
+  moveSubTaskFromTask = (startIndex, lastIndex, startParentId, lastParentId ) => {
+    let startParentIndex = this.props.taskList.findIndex(i => i.id === parseInt(startParentId));
+    let startSubTaskList = [...this.props.taskList[startParentIndex].subTasks];
+    let sttIndex = startSubTaskList.findIndex(i => i.subTaskId === parseInt(startIndex));
+    let startObj = startSubTaskList[sttIndex];
+
+    let lastParentIndex = this.props.taskList.findIndex(i => i.id === parseInt(lastParentId));
+    let lastSubTaskList = [...this.props.taskList[lastParentIndex].subTasks];
+    let lstIndex = lastSubTaskList.findIndex(i => i.subTaskId === parseInt(lastIndex));
+
+    startSubTaskList.splice(sttIndex,1);
+    lastSubTaskList.splice(lstIndex, 0, startObj);
+
+    this.props.updateSubTask(startSubTaskList, startParentId);
+    this.props.updateSubTask(lastSubTaskList, lastParentId);
+  }
+
   createTaskList = (name) => {
     this.props.addTask(name);
     this.handleTaskDialogBox();
@@ -42,6 +59,7 @@ class Home extends Component {
             addSubTask={addSubTask}
             updateStatus={updateStatus}
             updateSubTask={updateSubTask}
+            moveSubTaskFromTask={this.moveSubTaskFromTask}
           />
         ))}
         <Grid xs={2} sm={2}>
