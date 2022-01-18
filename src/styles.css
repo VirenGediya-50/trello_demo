@@ -1,0 +1,72 @@
+.main_div{
+    max-width: 100% !important;
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+.all_tasks{
+    margin: 40px 20px;
+    max-height: 90%;
+    overflow-y: scroll;
+    max-width: 90%s;
+}
+
+.new_button{
+    background-color: darkgrey !important;
+    margin: 0 30px;
+    height: 60px;
+    width: 100%;
+    justify-content: left !important;
+}
+
+.new_button > span{
+    margin : 0 10px !important;
+}
+
+.dialogbox > div > div{
+    width: 400px;
+}
+
+.task_list{
+    margin: 0 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    max-height: 100%;
+    scroll-behavior: none;
+    overflow: auto;
+    height: fit-content;
+    background-color: darkgray !important;
+}
+
+.sub_task{
+    height: 100px;
+    background-color: aliceblue;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.task_title{
+    margin: 0 0 10px 0 !important;
+    font-weight:500;
+}
+
+.add_task_textfield{
+    padding: 5px;
+    background-color: white;
+    width: -webkit-fill-available;
+    border-radius: 4px;
+}
+
+.add_task_textfield > div {
+    width: inherit;
+}
+
+.add_task_textfield > div > input {
+    padding: 5px;
+    width: inherit;
+}
+
+.subtask_title{
+    padding: 5px !important;
+    font-weight: 400;
+}
